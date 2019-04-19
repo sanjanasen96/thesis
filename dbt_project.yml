@@ -8,18 +8,32 @@ profile: 'thesis'
 
 
 source-paths: ["models"]
-analysis-paths: ["analysis"] 
+analysis-paths: ["analysis"]
 test-paths: ["tests"]
 data-paths: ["data"]
 macro-paths: ["macros"]
 
-target-path: "target"  
-clean-targets:         
+target-path: "target"
+clean-targets:
     - "target"
     - "dbt_modules"
 
+quoting:
+  identifier: false
+  schema: false
+
 models:
-  thesis: 
-    
-      example:
-          materialized: view
+  thesis:
+    vars:
+      ride_tables:
+      - rides_201601
+      - rides_201602
+      - rides_201603
+      - rides_201604
+      - rides_201605
+      - rides_201601
+      - rides_201601
+      - rides_201601
+      - rides_201601
+      - rides_201601
+      - rides_201601

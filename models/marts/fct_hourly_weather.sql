@@ -1,70 +1,20 @@
 
-with humidity as (
+with weather as (
 
-    select
-    cast (datetime as TIMESTAMP),
-    humidity
+    select *
 
-from thesis.humidity
-
-where datetime between '2016-01-01 00:00:00' and '2017-12-31 23:59:59'
+from thesis.weather
 
 ),
 
-temperature as (
+weather_fixed as (
 
-    select
-    cast (datetime as TIMESTAMP),
-    temperature
+    select date_trunc('hour', (to_timestamp(measure_time, 'DD/MM/YYYY HH24:MI:SS'))::timestamp) as start_time,
+       extract(hour from (to_timestamp(measure_time, 'DD/MM/YYYY HH24:MI:SS'))::timestamp) as start_hour,
+       *
 
-from thesis.temperature
-
-where datetime between '2016-01-01 00:00:00' and '2017-12-31 23:59:59'
-
-),
-
-description as (
-
-    select
-    cast (datetime as TIMESTAMP),
-    description
-
-from thesis.description
-
-where datetime between '2016-01-01 00:00:00' and '2017-12-31 23:59:59'
-
-),
-
-
-windspeed as (
-
-    select
-    cast (datetime as TIMESTAMP),
-    windspeed
-
-    from thesis.windspeed
-
-where datetime between '2016-01-01 00:00:00' and '2017-12-31 23:59:59'
-
-),
-
-joined as (
-
-    select humidity.*,
-    temperature.temperature,
-    description.description,
-    windspeed.windspeed
-
-    from humidity
-    left join temperature
-    on humidity.datetime=temperature.datetime
-
-    left join description
-    on temperature.datetime=description.datetime
-
-    left join windspeed
-    on description.datetime=windspeed.datetime
+from weather
 
 )
 
-select * from joined 
+select * from weather_fixed

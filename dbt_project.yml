@@ -25,7 +25,7 @@ quoting:
 models:
   thesis:
     vars:
-      ride_tables:
+      ride_tables_1:
       - rides_201601
       - rides_201602
       - rides_201603
@@ -35,6 +35,8 @@ models:
       - rides_201607
       - rides_201608
       - rides_201609
+
+      ride_tables_2:
       - rides_2016010
       - rides_201611
       - rides_201612

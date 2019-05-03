@@ -1,6 +1,6 @@
 with rides_1 as (
 
-    select * from {{ref('stg_citibikes_1')}}
+    select * from {{ref('stg_citibikes')}}
 
 ),
 

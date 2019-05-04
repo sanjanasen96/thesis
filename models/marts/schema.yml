@@ -10,17 +10,17 @@ models:
                 - unique
 
     - name: fct_hourly_weather
-      description: JOINS EVERYTHING
+      description: Converts to timestamp
       columns:
           - name: start_time
             tests:
                 - not_null
                 - unique
 
-    - name: stg_weather
-      description: JOINS EVERYTHING
+    - name: fct_hourly_rides
+      description: Converts to timestamp and extracts additional date features
       columns:
-          - name: measure_time
+          - name: start_time
             tests:
                 - not_null
                 - unique

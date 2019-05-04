@@ -24,6 +24,8 @@ quoting:
 
 models:
   thesis:
+    marts:
+      materialized: table
     vars:
       ride_tables:
       - rides_201601

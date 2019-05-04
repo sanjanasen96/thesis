@@ -1,0 +1,26 @@
+version: 2
+
+models:
+    - name: rides_weather_joined
+      description: JOINS EVERYTHING
+      columns:
+          - name: start_time
+            tests:
+                - not_null
+                - unique
+
+    - name: fct_hourly_weather
+      description: JOINS EVERYTHING
+      columns:
+          - name: start_time
+            tests:
+                - not_null
+                - unique
+
+    - name: stg_weather
+      description: JOINS EVERYTHING
+      columns:
+          - name: measure_time
+            tests:
+                - not_null
+                - unique
